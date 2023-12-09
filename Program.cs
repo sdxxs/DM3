@@ -29,12 +29,12 @@
         int[,] MatrixAdj = CreateAdjacencyMatrix(Matrix, V, type, m);
 
         WriteMatrix("Матриця сумiжностi", MatrixAdj);
-        Console.Write("Введiть вершину,з якої буде виконаний пошук в глибину:");
+        Console.Write("Введiть вершину,з якої буде виконаний пошук в ширину:");
         int startV = int.Parse(Console.ReadLine());
-        DepthFirstSearch(startV, MatrixAdj, V);
+        BreadthFirstSearch(startV, MatrixAdj, V);
         Console.ReadKey();
     }
-    static void DepthFirstSearch(int startVertex,int[,] adjacencyMatrix,int [] V)
+    static void BreadthFirstSearch(int startVertex,int[,] adjacencyMatrix,int [] V)
     {
        
         int j = 0;
