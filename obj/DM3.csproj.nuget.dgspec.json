@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sarab\\source\\repos\\DM3\\DM3.csproj": {}
+    "C:\\Users\\Tima\\Source\\Repos\\DM3\\DM3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sarab\\source\\repos\\DM3\\DM3.csproj": {
+    "C:\\Users\\Tima\\Source\\Repos\\DM3\\DM3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sarab\\source\\repos\\DM3\\DM3.csproj",
+        "projectUniqueName": "C:\\Users\\Tima\\Source\\Repos\\DM3\\DM3.csproj",
         "projectName": "DM3",
-        "projectPath": "C:\\Users\\sarab\\source\\repos\\DM3\\DM3.csproj",
-        "packagesPath": "C:\\Users\\sarab\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sarab\\source\\repos\\DM3\\obj\\",
+        "projectPath": "C:\\Users\\Tima\\Source\\Repos\\DM3\\DM3.csproj",
+        "packagesPath": "C:\\Users\\Tima\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tima\\Source\\Repos\\DM3\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sarab\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tima\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,24 +50,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.22, 6.0.22]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.22, 6.0.22]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.22, 6.0.22]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.22, 6.0.22]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

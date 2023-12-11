@@ -7,10 +7,8 @@
         n = int.Parse(Console.ReadLine());
         Console.Write("Введiть кiлькiсть ребер m: ");
         m = int.Parse(Console.ReadLine());
-        Console.WriteLine("Граф орієнтовний/неорієнтовний? Напишіть:" +
-                        "\n+ якщо граф орієнтовний " +
-                        "\n- якщо граф неорієнтовний.");
-        char type = char.Parse(Console.ReadLine());
+        Console.WriteLine("Програма написана для неорiєнтованого графа");
+        char type = '-';
         Console.WriteLine("Введiть початкову та кiнцеву вершини через кому(приклад: 1, 2)");
 
         int[,] Matrix = new int[m, 2];
@@ -29,21 +27,28 @@
         int[,] MatrixAdj = CreateAdjacencyMatrix(Matrix, V, type, m);
 
         WriteMatrix("Матриця сумiжностi", MatrixAdj);
-        Console.Write("Введiть вершину,з якої буде виконаний пошук в ширину:");
-        int startV = int.Parse(Console.ReadLine());
-        BreadthFirstSearch(startV, MatrixAdj, V);
+        Console.Write("Введiть вершину, з якої буде виконаний пошук в ширину: ");
+        int startVB = int.Parse(Console.ReadLine());
+        BreadthFirstSearch(startVB, MatrixAdj, V);
+
+        Console.Write("Введiть вершину, з якої буде виконаний пошук в глибину: ");
+        int startVD = int.Parse(Console.ReadLine());
+        DepthFirstSearch(startVD, MatrixAdj, V);
         Console.ReadKey();
     }
-    static void BreadthFirstSearch(int startVertex,int[,] adjacencyMatrix,int [] V)
+    static void BreadthFirstSearch(int startVertex, int[,] adjacencyMatrix, int[] V)
     {
        
         int j = 0;
-        int []deepSearch=new int[V.Length];
+        int[] deepSearch=new int[V.Length];
         deepSearch[j] = startVertex;
         startVertex--;
         bool used=false;
- 
-        for (int element=1;element < deepSearch.Length; element++)
+
+        Console.Write("Пошук в ширину ");
+        Console.Write($"{startVertex + 1} ");
+
+        for (int element = 1; element < deepSearch.Length; element++)
         {
             for (int i = 0; i < adjacencyMatrix.GetLength(1); i++)
             {
@@ -56,7 +61,7 @@
                             used = true;
                         }
                     }
-                    if (used == false)
+                    if (!used)
                     {
                         j++;
                         deepSearch[j] = V[i]; 
@@ -66,7 +71,7 @@
                 used = false;
             }
  
-            startVertex = deepSearch[element]-1;
+            startVertex = deepSearch[element] - 1;
         }
 
 
@@ -75,6 +80,50 @@
         //{
         //    Console.Write(deepSearch[i] + " ");
         //}
+        Console.WriteLine();
+    }
+
+    static void DepthFirstSearch(int startVertex, int[,] adjacencyMatrix, int[] V)
+    {
+
+        int k = 0;
+        int[] deepSearch = new int[V.Length];
+        deepSearch[k] = startVertex;
+        startVertex--;
+        bool used = false;
+
+        Console.Write("Пошук в глибину ");
+        Console.Write($"{startVertex + 1} ");
+
+        for (int element = 1; element < deepSearch.Length; element++)
+        {
+            for (int i = 0; i < adjacencyMatrix.GetLength(1); i++)
+            {
+                if (adjacencyMatrix[startVertex, i] == 1)
+                {
+                    for (int j = 0; j < deepSearch.Length; j++)
+                    {
+                        if (deepSearch[j] == V[i])
+                        {
+                            used = true;
+                        }
+                    }
+                    if (!used)
+                    {
+                        k++;
+                        deepSearch[k] = V[i];
+                        Console.Write(deepSearch[k] + " ");
+                        startVertex = i;
+                    }
+                    else if (used && k+1 != deepSearch.Length)
+                    {
+                        startVertex = deepSearch[element--] - 1;
+                    }
+                }
+                used = false;
+            }
+        }
+        Console.WriteLine();
     }
 
     static int[] GetUniqueVertices(int[,] matrix)
@@ -109,7 +158,6 @@
                 MatrixAdj[index2, index1] = 1;
             }
         }
-
         return MatrixAdj;
     }
 
@@ -125,10 +173,4 @@
             Console.WriteLine();
         }
     }
-
-   
-    
-  
-
-   
 }
